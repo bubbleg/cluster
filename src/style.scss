@@ -1,4 +1,5 @@
 $primary_color: rgb(34, 107, 255);
+$block-border-color: rgb(147,183,255);
 
 body{ 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -90,13 +91,21 @@ header {
 
 main {
     .frame {
+        padding-top: 80px;
+        padding-bottom: 80px;
         &1 {
             display: flex;
             flex-direction: row;
-            flex-basis: 45%;
+            flex-grow: 1;
+
+            justify-content: stretch;
             align-items: center;
             position: relative;
 
+
+            & > div {
+                width: calc( ( 100% - 50px) / 2);
+            }
 
             &__text {
 
@@ -164,7 +173,10 @@ main {
                 overflow: hidden;
                 border-top-left-radius: 20px;
                 border-bottom-left-radius: 20px;
-                img {}
+                img {
+                    display: block;
+                    width: 100%;
+                }
             }
         }
 
@@ -173,7 +185,7 @@ main {
             flex-direction: row;
             justify-content: space-between;
 
-            $margin: 50px;
+            $margin: 0;
             margin: {
                 top: $margin;
                 bottom: $margin;
@@ -181,6 +193,7 @@ main {
         }
 
         &3 {
+            position: relative;
             &__header {
                 display: block;
                 text-align: center;
@@ -189,17 +202,16 @@ main {
                 line-height: 1.2;
                 font-weight: 600;
                 margin-bottom: 60px;
-
             }
 
-            $block-border-color: rgb(147,183,255);
+            
             &__block {
                 display: block;
                 border-radius: 12px;
                 border: 3px solid $block-border-color;
                 box-sizing: border-box;
                 background-color: $primary_color;
-                width: 495px;
+                width: calc((100% - 56px) / 3);
 
                 padding: 28px;
 
@@ -231,6 +243,7 @@ main {
                 &-button {
                     border: 3px solid $block-border-color;
                     border-radius: 10px;
+                    box-sizing: border-box;
                     color: $primary_color;
                     background-color: white;
                     text-align: center;
@@ -239,6 +252,135 @@ main {
                     font-weight: 600;
                     padding-top: 8px;
                     padding-bottom: 9px;
+                }
+            }
+        }
+
+        &4 {
+            &__header {
+                @extend .frame3__header;
+            }
+
+            &__body {
+                text-align: center;
+                font-size: 32px;
+
+                div {
+                    position: relative;
+                    margin-top: 90px;
+                    margin-bottom: 90px;
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    img {
+                        width: 100%;
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        &5 {
+            &__header {
+                @extend .frame3__header;
+            }
+
+            &__block {
+                border-radius: 20px;
+                border: 3px solid $block-border-color;
+                box-sizing: border-box;
+                background-color: $primary_color;
+                width: calc((100% - 28px) / 2);
+                height: 388px;
+
+                margin-bottom: 28px;
+                
+                position: relative;
+
+                &-group {
+                    display: flex;
+                    flex-direction: row;
+
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                }
+
+                &-bg {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        display: block;
+                    }
+                }
+                
+                &-footer {
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                    left: 0;
+
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    flex-wrap: nowrap;
+
+                    box-sizing: border-box;
+
+                    padding: {
+                        left: 28px;
+                        bottom: 28px;
+                        right: 28px;
+                    }
+
+
+                }
+
+                &__info {
+                    &-header {
+                        color: white;
+
+                        font-size: 40px;
+                        font-weight: 600;
+                        line-height: 1.2;
+                    }
+
+                    &-subheader {
+                        color: white;
+
+                    }
+                }
+
+                &-button {
+                    box-sizing: border-box;
+                    border: 1px solid white;
+                    border-radius: 10px;
+                    color: white;
+
+                    padding: {
+                        left: 16px;
+                        right: 17px;
+                        top: 8px;
+                        bottom: 9px;
+                    }
+
+                    margin-left: 15px;
+
+                    &-group {
+                        display: flex;
+                        flex-direction: row;
+
+                    }
                 }
             }
         }
